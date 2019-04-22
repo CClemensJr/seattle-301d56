@@ -153,17 +153,17 @@ let message = (name) => `Hello, ${ name }!`;
 console.log(message('Allie'));
 
 
-// let Student = function(name, age, hometown) {
-//   this.name = name;
-//   this.age = age;
-//   this.hometown = hometown;
-// };
-
-let Student = (name, age, hometown) => {
+let Student = function(name, age, hometown) {
   this.name = name;
   this.age = age;
   this.hometown = hometown;
 };
+
+// let Student = (name, age, hometown) => {
+//   this.name = name;
+//   this.age = age;
+//   this.hometown = hometown;
+// };
 
 let joe = new Student('Joe', 'Schmoe', 100);
 
@@ -172,11 +172,11 @@ let joe = new Student('Joe', 'Schmoe', 100);
 console.log(joe);
 
 
-// Student.prototype.greeting = function() {
-//   return `Hi, my name is ${this.name}`;
-// };
+Student.prototype.greeting = function() {
+  return `Hi, my name is ${this.name}`;
+};
 
-Student.prototype.greeting = () => `Hi, my name is ${ this.name }`;
+// Student.prototype.greeting = () => `Hi, my name is ${ this.name }`;
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this method to break!
@@ -187,8 +187,10 @@ Student.courseName = function() {
   return 'This student is enrolled in Code 301.';
 };
 
+// Student.courseName = () => "This student is enrolled in Code 301";
+
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(Student.courseName());
+console.log(Student.courseName());
 
 
 
@@ -199,7 +201,7 @@ Student.prototype.scope = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scope());
+console.log(joe.scope());
 
 Student.prototype.scopeArrow = () => console.log(this);
 
